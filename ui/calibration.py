@@ -3,11 +3,10 @@ from PIL import Image, ImageTk
 
 
 def show_calibration_screen(IMAGE_PATH, game_controller):
-    """Displays a blue full-screen calibration screen with an image on the side."""
     root = tk.Tk()
     root.attributes("-fullscreen", True)  # Fullscreen mode
     root.attributes("-topmost", True)  # Fullscreen mode
-    root.configure(bg="black")  # Blue background
+    root.configure(bg="black")  
     root.lift()
     root.focus_force()
 
