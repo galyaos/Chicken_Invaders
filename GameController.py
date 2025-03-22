@@ -38,7 +38,7 @@ class GameController:
         if frame is None:
             return None  # Skip processing if there's no frame
 
-        frame = frame[150:-20, :]  # Crop top 50 pixels and bottom 50 pixels
+        frame = frame[150:-20, :]  # Crop top 150 pixels and bottom 20 pixels
         frame = cv2.resize(frame, (frame.shape[1] // 2, frame.shape[0] // 2))
         players = detect_players(frame, self.segmenter, mode=self.mode)
 
@@ -48,7 +48,7 @@ class GameController:
             body_center_x = bx + bw // 2
             body_center_y = by + bh // 2
 
-            if i not in self.player_centers:
+            if i not in self.player_centers: # calibration values setting
                 self.player_centers[i] = (body_center_x, body_center_y)
 
             self.handle_player(body_center_x, body_center_y, i)
